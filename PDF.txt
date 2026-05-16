@@ -1,0 +1,82 @@
+import mysql.connector as sql
+from datetime import date
+
+# Connect to MySQL
+con = sql.connect(host="localhost", user="root", password="dheeraj@19", database="cs")
+cur = con.cursor()
+
+def add_book():
+    title = input("Enter book title: ")
+    author = input("Enter author name: ")
+    cur.execute("INSERT INTO books (title, author, available) VALUES (%s, %s, TRUE)", (title, author))
+    con.commit()
+    print("? Book added successfully!")
+
+def view_books():
+    cur.execute("SELECT * FROM books")
+    for row in cur.fetchall():
+        print(row)
+
+def add_student():
+    admn_no = int(input("Enter Admission No: "))
+    name = input("Enter Student Name: ")
+    clas = input("Enter Class: ")
+    cur.execute("INSERT INTO students VALUES (%s, %s, %s)", (admn_no, name, clas))
+    con.commit()
+    print("? Student added successfully!")
+
+def issue_book():
+    book_id = int(input("Enter Book ID: "))
+    admn_no = int(input("Enter Admission No: "))
+
+    cur.execute("SELECT available FROM books WHERE book_id=%s", (book_id,))
+    avail = cur.fetchone()
+    if avail and avail[0]:
+        cur.execute("INSERT INTO issue (book_id, admn_no, issue_date, return_date) VALUES (%s, %s, %s, NULL)", (book_id, admn_no, date.today()))
+        cur.execute("UPDATE books SET available=FALSE WHERE book_id=%s", (book_id,))
+        con.commit()
+        print("?? Book issued successfully!")
+    else:
+        print("? Book not available!")
+
+def return_book():
+    issue_id = int(input("Enter Issue ID: "))
+    cur.execute("SELECT book_id FROM issue WHERE issue_id=%s AND return_date IS NULL", (issue_id,))
+    data = cur.fetchone()
+    if data:
+        cur.execute("UPDATE issue SET return_date=%s WHERE issue_id=%s", (date.today(), issue_id))
+        cur.execute("UPDATE books SET available=TRUE WHERE book_id=%s", (data[0],))
+        con.commit()
+        print("? Book returned successfully!")
+    else:
+        print("? Invalid Issue ID or already returned!")
+
+def menu():
+    while True:
+        print("\n===== LIBRARY MANAGEMENT MENU =====")
+        print("1. Add Book")
+        print("2. View Books")
+        print("3. Add Student")
+        print("4. Issue Book")
+        print("5. Return Book")
+        print("6. Exit")
+
+        choice = input("Enter choice: ")
+        if choice == '1':
+            add_book()
+        elif choice == '2':
+            view_books()
+        elif choice == '3':
+            add_student()
+        elif choice == '4':
+            issue_book()
+        elif choice == '5':
+            return_book()
+        elif choice == '6':
+            print("?? Exiting...")
+            break
+        else:
+            print("? Invalid choice! Try again.")
+
+menu()
+con.close()

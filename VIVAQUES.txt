@@ -1,0 +1,178 @@
+🔹 GENERAL PROJECT QUESTIONS
+1. What is the aim of your project?
+
+Answer:
+The aim of my project is to computerize the library system for managing books, users, issued books, and late fees efficiently using Python and MySQL.
+
+2. Why did you choose Library Management System?
+
+Answer:
+It is a real-life application that helps in managing books, tracking issued books, and calculating fines automatically.
+
+3. Which programming language is used?
+
+Answer:
+Python is used as the front-end programming language and MySQL is used as the backend database.
+
+4. Why did you use MySQL as backend?
+
+Answer:
+MySQL provides structured data storage, fast data retrieval, data security, and supports relational databases.
+
+🔹 PYTHON RELATED QUESTIONS
+5. What is a function in Python?
+
+Answer:
+A function is a block of reusable code that performs a specific task.
+
+6. Why did you use functions in your project?
+
+Answer:
+To make the program modular, reusable, and easy to understand.
+
+7. What is a loop? Which loop did you use?
+
+Answer:
+A loop is used to repeat a block of code. I used a while loop for the menu-driven program.
+
+8. What is a menu-driven program?
+
+Answer:
+A menu-driven program allows the user to choose an option from a list of operations.
+
+9. What is mysql.connector?
+
+Answer:
+It is a Python module used to connect Python programs with MySQL databases.
+
+10. What is cursor in MySQL?
+
+Answer:
+A cursor is used to execute SQL queries and fetch data from the database.
+
+🔹 DATABASE & SQL QUESTIONS
+11. What is a database?
+
+Answer:
+A database is an organized collection of data stored electronically.
+
+12. What is a table?
+
+Answer:
+A table stores data in rows and columns.
+
+13. What are primary and foreign keys?
+
+Answer:
+
+Primary key: Uniquely identifies a record.
+
+Foreign key: Connects two tables.
+
+14. Which tables are used in your project?
+
+Answer:
+Users table, Books table, and Issued_Books table.
+
+15. What is normalization?
+
+Answer:
+Normalization is the process of organizing data to reduce redundancy.
+
+🔹 PROJECT-SPECIFIC QUESTIONS
+16. How does “View Issued Books” work?
+
+Answer:
+It fetches data from issued_books table and joins it with users and books tables.
+
+17. How do you register a user?
+
+Answer:
+Only the admin can register a user by entering the correct admin password.
+
+18. How is admin security implemented?
+
+Answer:
+By checking a predefined admin password before allowing access.
+
+19. What is a due date?
+
+Answer:
+It is the last date by which a book must be returned.
+
+20. How do you calculate late fees?
+
+Answer:
+Late fee = Number of days after due date × ₹2.
+
+21. What happens if a user is not found?
+
+Answer:
+The program displays “User not found”.
+
+22. How is date handled in your project?
+
+Answer:
+Using Python’s datetime module.
+
+23. What is JOIN in SQL?
+
+Answer:
+JOIN is used to combine records from two or more tables.
+
+24. Which JOIN did you use?
+
+Answer:
+INNER JOIN.
+
+25. What is commit()?
+
+Answer:
+commit() saves changes permanently in the database.
+
+🔹 ERROR HANDLING & SECURITY
+26. What errors can occur in your project?
+
+Answer:
+Invalid user ID, wrong admin password, and database connection errors.
+
+27. How can your project be improved?
+
+Answer:
+By adding login system, book reservation, GUI interface, and email reminders.
+
+28. What are the limitations of your project?
+
+Answer:
+It is console-based and supports only basic features.
+
+🔹 SHORT ONE-LINERS (VERY IMPORTANT ⭐)
+29. What is SQL?
+
+Answer:
+SQL is a language used to manage databases.
+
+30. What is backend?
+
+Answer:
+Backend handles data storage and processing.
+
+31. What is frontend?
+
+Answer:
+Frontend interacts with the user.
+
+32. What is CRUD?
+
+Answer:
+Create, Read, Update, Delete.
+
+33. What is a foreign key constraint?
+
+Answer:
+It maintains referential integrity between tables.
+
+34. Why is your project useful?
+
+Answer:
+It reduces manual work and improves accuracy.
